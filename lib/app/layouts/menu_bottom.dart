@@ -3,6 +3,8 @@ import 'package:musea/app/const/colors.dart';
 
 // pages
 import 'package:musea/app/pages/home.dart';
+import 'package:musea/app/pages/profile.dart';
+import 'package:musea/app/pages/notfound.dart';
 
 class MenuButtom extends StatefulWidget {
   const MenuButtom({ Key key }) : super(key: key);
@@ -16,8 +18,8 @@ class _MenuButtomState extends State<MenuButtom> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const Home(),
-    const Text('my list'),
-    const Text('profile'),
+    const NotFound(),
+    const Profile(),
   ];
 
   void _onItemTap(int index){

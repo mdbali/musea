@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 // import const
 import 'package:musea/app/const/colors.dart';
+import 'package:musea/app/const/helper.dart';
 import 'package:musea/app/const/kabupaten.dart';
 import 'package:musea/app/const/experience_list.dart';
+
+// pages
+import 'package:musea/app/pages/category_experience.dart';
+import 'package:musea/app/pages/notfound.dart';
 
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
@@ -64,9 +69,11 @@ class Home extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Expanded(
+                  Expanded(
                     child: Image(
-                      image: AssetImage("assets/images/kabupaten/tabanan.jpg"),
+                      image: NetworkImage(
+                        experiences[indexOne].mainimage
+                      ),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -115,9 +122,11 @@ class Home extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Expanded(
+                  Expanded(
                     child: Image(
-                      image: AssetImage("assets/images/kabupaten/tabanan.jpg"),
+                      image: NetworkImage(
+                        experiences[indexTwo].mainimage
+                      ),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -207,33 +216,40 @@ class Home extends StatelessWidget {
                         )
                       ]
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const Expanded(
-                          child: SizedBox(
-                            width: double.infinity,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-                              child: Image(
-                                image: AssetImage("assets/images/kabupaten/tabanan.jpg"),
-                                fit: BoxFit.cover,
+                    child: InkWell(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                                child: Image(
+                                  image: NetworkImage(
+                                    datakabupaten.imgUrl
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                          ),  
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                          child: Text(
-                            datakabupaten.name,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: const MuseaColors().museaPrimary
-                            )
+                            ),  
                           ),
-                        )
-                      ],
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                            child: Text(
+                              datakabupaten.name,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: const MuseaColors().museaPrimary
+                              )
+                            ),
+                          )
+                        ],
+                      ),
+                      onTap: () {                          
+                        Helper.nextPage(context, const CatExperience());
+                      }, 
                     ),
                   );
                 },
