@@ -5,7 +5,7 @@ import 'package:musea/app/const/helper.dart';
 import 'package:musea/app/pages/login.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({ Key key }) : super(key: key);
+  const Profile({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

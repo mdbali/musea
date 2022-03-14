@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:musea/app/const/experience_list.dart';
 
 class CatExperience extends StatelessWidget {
-  const CatExperience({ Key key }) : super(key: key);
+  const CatExperience({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -7,12 +7,12 @@ class CustomFormField extends StatelessWidget{
   
   const CustomFormField(
   {
-    Key key, 
-    this.hintText, 
-    this.isPassword, 
-    this.isEmail,
-    Icon prefixIcon,
-    Function(dynamic value) validator,
+    required Key key, 
+    required this.hintText, 
+    required this.isPassword, 
+    required this.isEmail,
+    required Icon prefixIcon,
+    required Function(dynamic value) validator,
   }) : super(key: key);
   
   @override

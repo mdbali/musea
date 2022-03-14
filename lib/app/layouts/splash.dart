@@ -10,7 +10,7 @@ import 'package:musea/app/const/colors.dart';
 import 'package:musea/app/pages/login.dart';
 
 class Splash extends StatefulWidget {
-  const Splash({ Key key }) : super(key: key);
+  const Splash({ Key? key }) : super(key: key);
 
   @override
   _SplashState createState() => _SplashState();

@@ -7,7 +7,7 @@ import 'package:musea/app/pages/profile.dart';
 import 'package:musea/app/pages/notfound.dart';
 
 class MenuButtom extends StatefulWidget {
-  const MenuButtom({ Key key }) : super(key: key);
+  const MenuButtom({ Key? key }) : super(key: key);
 
   @override
   State<MenuButtom> createState() => _MenuButtomState();

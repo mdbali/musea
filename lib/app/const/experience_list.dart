@@ -4,7 +4,7 @@ class ExperienceLists{
   String price;
   String mainimage;
 
-  ExperienceLists({ this. tags, this.title, this.price, this.mainimage});
+  ExperienceLists({ required this. tags, required this.title, required this.price, required this.mainimage});
 }
 
 List<ExperienceLists> experiencelists = [

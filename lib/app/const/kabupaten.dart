@@ -2,7 +2,7 @@ class Kabupaten{
   String name;
   String imgUrl;
 
-  Kabupaten({this.imgUrl, this.name});
+  Kabupaten({required this.imgUrl, required this.name});
 }
 
 List<Kabupaten> kabupaten = [

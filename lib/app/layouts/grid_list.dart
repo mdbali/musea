@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:musea/app/const/colors.dart';
 
 class ExperienceCard extends StatelessWidget {
-  const ExperienceCard({ Key key }) : super(key: key);
+  const ExperienceCard({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
