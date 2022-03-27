@@ -3,6 +3,8 @@ import 'package:musea/app/const/helper.dart';
 
 // import pages
 import 'package:musea/app/pages/login.dart';
+import 'package:musea/app/pages/edit_profile.dart';
+import 'package:musea/app/pages/host_experience.dart';
 
 class Profile extends StatelessWidget {
   const Profile({ Key? key }) : super(key: key);
@@ -50,24 +52,29 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.only(top: 16, bottom: 20),
             child: const Text("Account settings", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, fontFamily: 'Poppins')),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  "Personal information",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.grey
+          InkWell(
+            onTap: (){
+              Helper.nextPage(context, const EditProfile());
+            },
+            child:Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "Personal information",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey
+                    ),
                   ),
-                ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.grey,
-                )
-              ],
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.grey,
+                  )
+                ],
+              ),
             ),
           ),
           Padding(
@@ -131,6 +138,36 @@ class Profile extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
+          Container(
+            padding: const EdgeInsets.only( bottom: 20),
+            child: const Text("Hosting", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, fontFamily: 'Poppins')),
+          ),
+          InkWell(
+            onTap: () {
+              Helper.nextPage(context, const HostExperience());
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "Manage experiences",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey
+                    ),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.grey,
+                  )
+                ],
+              ),
+            ),
+          ),
+           const SizedBox(height: 30),
           Container(
             padding: const EdgeInsets.only( bottom: 20),
             child: const Text("Support", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, fontFamily: 'Poppins')),

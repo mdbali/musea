@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:musea/app/const/colors.dart';
+import 'package:musea/app/const/helper.dart';
+import 'package:musea/app/pages/category_experience.dart';
 
 class ExperienceDetail extends StatelessWidget {
   const ExperienceDetail ({ Key? key }) : super(key: key);
@@ -49,14 +51,48 @@ class ExperienceDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        padding: const EdgeInsets.only(bottom: 16),
+                        padding: const EdgeInsets.only(bottom: 15),
                         child: Text(
                           "Monumen Bajra Sandhi Renon",
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             color: Colors.black,
                             fontWeight: FontWeight.w700
-                          )
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Helper.nextPage(context, const CatExperience());
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          child: Text(
+                            "Denpasar",
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              color: const MuseaColors().museaPrimary,
+                              fontWeight: FontWeight.w500,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Divider(height: 15,thickness: 1),
+                      Container(
+                        padding: const EdgeInsets.only(top: 16, bottom: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Experience hosted by\nYoga",
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
                         ),
                       ),
                       const Divider(height: 15,thickness: 1),
@@ -186,6 +222,33 @@ class ExperienceDetail extends StatelessWidget {
             )
           )
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(top: 8, bottom:8, left: 15, right: 15),
+        child: Row(
+          children: [
+            const Expanded(
+              child: Text("Rp 50,000/person", 
+              style: TextStyle(
+                fontWeight: FontWeight.bold, 
+                fontSize: 16
+                ),
+              ),
+            ),
+            Expanded(
+              child: TextButton(
+                  onPressed: () {
+
+                  },
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                    backgroundColor: MaterialStateProperty.all<Color>(const MuseaColors().museaPrimary),
+                  ),
+                  child: const Text('Book Now'),
+                ),
+            )
+          ],
+        ),
       ),
     );
   }
