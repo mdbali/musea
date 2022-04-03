@@ -4,6 +4,9 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:musea/app/const/colors.dart';
 import 'package:musea/app/const/helper.dart';
 import 'package:musea/app/pages/category_experience.dart';
+import 'package:musea/app/pages/host_profile.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class ExperienceDetail extends StatelessWidget {
   const ExperienceDetail ({ Key? key }) : super(key: key);
@@ -26,10 +29,25 @@ class ExperienceDetail extends StatelessWidget {
             backgroundColor: const MuseaColors().museaPrimary,
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                "https://www.rentalmobilbali.net/wp-content/uploads/2014/09/Monumen-Bajra-Sandhi.jpg",
-                width: double.maxFinite,
-                fit: BoxFit.cover,
+              background: Swiper.children(
+                autoplay: true,
+                pagination: const SwiperPagination(
+                margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
+                builder: DotSwiperPaginationBuilder(
+                    color: Colors.white30,
+                    activeColor: Colors.white,
+                    size: 8,
+                    activeSize: 8)),
+                children: [
+                  Image.network("https://www.rentalmobilbali.net/wp-content/uploads/2014/09/Monumen-Bajra-Sandhi.jpg",
+                    width: double.maxFinite,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.network("https://tapak.id/wp-content/uploads/2021/08/Bajra-Sandhi.jpg",
+                    width: double.maxFinite,
+                    fit: BoxFit.cover,
+                  ),
+                ],
               ),
             ),
           ),
@@ -80,12 +98,12 @@ class ExperienceDetail extends StatelessWidget {
                       ),
                       const Divider(height: 15,thickness: 1),
                       Container(
-                        padding: const EdgeInsets.only(top: 16, bottom: 16),
+                        padding: const EdgeInsets.only(top: 16, bottom: 0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Experience hosted by\nYoga",
+                              "Experience hosted by",
                               style: GoogleFonts.poppins(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700,
@@ -93,6 +111,22 @@ class ExperienceDetail extends StatelessWidget {
                               ),
                             )
                           ],
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Helper.nextPage(context, const HostProfile());
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(top:0, bottom: 16),
+                          child: Text(
+                            "Yoga",
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black,
+                            ),
+                          ),
                         ),
                       ),
                       const Divider(height: 15,thickness: 1),
