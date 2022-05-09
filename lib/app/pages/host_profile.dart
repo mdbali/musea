@@ -8,6 +8,7 @@ class HostProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -58,7 +59,45 @@ class HostProfile extends StatelessWidget {
                 ),
                 const SizedBox(height: 8,),
                 const Center(
-                  child: Text("Yoga", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, fontFamily: 'Poppins'), textAlign: TextAlign.center)
+                  child: Text("Yoga", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, fontFamily: 'Poppins'), textAlign: TextAlign.center)
+                ),
+                const SizedBox(height: 2),
+                const Center(
+                  child: Text("Denpasar", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, fontFamily: 'Poppins', color: Colors.grey), textAlign: TextAlign.center)
+                ),
+                const SizedBox(height: 8),
+                Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(Icons.email, size: 14, color: Colors.grey),
+                      Padding(padding: EdgeInsets.only(left: 8)),
+                      Text('yoga@gmail.com', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Poppins', color: Colors.grey)),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(Icons.phone, size: 14, color: Colors.grey),
+                      Padding(padding: EdgeInsets.only(left: 8)),
+                      Text('+6281238111222', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Poppins', color: Colors.grey)),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Message Now", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white )),
+                    style: ElevatedButton.styleFrom(
+                        primary: const  MuseaColors().museaPrimary,
+                        fixedSize: const Size(250, 40),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50))),
+                  ),
                 ),
                 const Divider(height: 30,thickness: 2),
                 Container(

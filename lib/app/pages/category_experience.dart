@@ -6,6 +6,134 @@ import 'package:musea/app/const/experience_list.dart';
 class CatExperience extends StatelessWidget {
   const CatExperience({ Key? key }) : super(key: key);
 
+  Future<void> showFilterDialog(BuildContext context) async {
+    return await showDialog(context: context,
+    builder: (context){
+      return AlertDialog(
+        content: 
+        SizedBox(
+          width: double.maxFinite,
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              const Center(
+                child: Text('More Filter', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, fontFamily: 'Poppins')),
+              ),
+              const Divider(height: 20,thickness: 2),
+              Container(
+                padding: const EdgeInsets.all(0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const SizedBox(height: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 0),
+                        child: const Text(
+                          "Activity type",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text('Art and Culture', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12, fontFamily: 'Poppins'))
+                          ),
+                          Checkbox(
+                            value: true,
+                            onChanged: (bool? value) {
+                              onChanged(value);
+                            },
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text('Food and drink', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12, fontFamily: 'Poppins'))
+                          ),
+                          Checkbox(
+                            value: false,
+                            onChanged: (bool? value) {
+                              onChanged(value);
+                            },
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text('Tours', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12, fontFamily: 'Poppins'))
+                          ),
+                          Checkbox(
+                            value: false,
+                            onChanged: (bool? value) {
+                              onChanged(value);
+                            },
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text('Sports', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12, fontFamily: 'Poppins'))
+                          ),
+                          Checkbox(
+                            value: false,
+                            onChanged: (bool? value) {
+                              onChanged(value);
+                            },
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text('Entertainment', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12, fontFamily: 'Poppins'))
+                          ),
+                          Checkbox(
+                            value: false,
+                            onChanged: (bool? value) {
+                              onChanged(value);
+                            },
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text('Wellness', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12, fontFamily: 'Poppins'))
+                          ),
+                          Checkbox(
+                            value: false,
+                            onChanged: (bool? value) {
+                              onChanged(value);
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+              child: const Text('Show results'),
+              onPressed: (){ 
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +160,14 @@ class CatExperience extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(bottomRight: Radius.circular(25), bottomLeft: Radius.circular(25)),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                showFilterDialog(context);
+              },
+              icon: const Icon(Icons.filter_list),
+            ),
+          ],
         ),
       ),
       extendBodyBehindAppBar: false,
@@ -49,6 +185,8 @@ class CatExperience extends StatelessWidget {
       ),
     );
   }
+
+  void onChanged(bool? value) {}
 }
 
 Container buildAllExperienceList(
